@@ -10,4 +10,9 @@ export default defineConfig({
 			"@": path.resolve(__dirname, "./src"),
 		},
 	},
+	server: {
+		port: parseInt(process.env.PORT as string),
+		host: "0.0.0.0",
+		cors: true
+	}
 });
