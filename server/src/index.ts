@@ -8,7 +8,7 @@ dotenv.config();
 const upload = multer({ dest: "uploads/" });
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = typeof process.env.PORT === "undefined" ? 3000 : parseInt(process.env.PORT)
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -53,6 +53,6 @@ app.post("/upload", upload.fields([{ name: "file" }]), async (req, res) => {
 	}
 });
 
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
 	console.log(`Server running at http://localhost:${port}`);
 });
