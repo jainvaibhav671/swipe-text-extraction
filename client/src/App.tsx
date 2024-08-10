@@ -32,6 +32,7 @@ function App() {
 				headers: { "Content-Type": "multipart/form-data" },
 			})
 			.then((res) => {
+				console.log(res.data.result)
 				if (typeof res.data.result !== "undefined")
 					setResult(res.data.result as string);
 			})
