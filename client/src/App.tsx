@@ -27,6 +27,7 @@ function App() {
 		const formData = new FormData();
 		formData.append("file", file as File, file.name);
 
+		console.log("URL", import.meta.env.VITE_API_UPLOAD_URL)
 		axios
 			.post(`${import.meta.env.VITE_API_UPLOAD_URL}`, formData, {
 				headers: { "Content-Type": "multipart/form-data" },

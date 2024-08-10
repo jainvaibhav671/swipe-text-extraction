@@ -1,6 +1,8 @@
 import express, { Request, Response } from "express";
 import multer from "multer";
 import dotenv from "dotenv";
+import cors from "cors"
+
 import { extractTextFromImage, extractTextFromPDF, getDetails } from "./utils";
 
 dotenv.config();
@@ -10,6 +12,7 @@ const upload = multer({ dest: "uploads/" });
 const app = express();
 const port = typeof process.env.PORT === "undefined" ? 3000 : parseInt(process.env.PORT)
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
