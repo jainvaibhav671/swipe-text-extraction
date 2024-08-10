@@ -12,8 +12,9 @@
     },
     "scripts": {
         "start": "ts-node src/index.ts",
+        "dev": "nodemon src/index.ts",
         "build": "tsc",
-        "serve": "node dist/index.js"
+        "start:dist": "node dist/src/index.js"
     },
     "dependencies": {
         "@google/generative-ai": "^0.16.0",
