@@ -20,12 +20,7 @@ export default function InputBox({ file, uploadType, ...props }: Props) {
 	const removeFile = () => props.setFile(null);
 	const setFile = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const file = event.currentTarget.files?.item(0);
-		if (typeof file === "undefined") {
-			props.setFile(null);
-			return;
-		}
-
-		props.setFile(file);
+		props.setFile(file!);
 	};
 
 	useEffect(() => {
@@ -58,7 +53,7 @@ export default function InputBox({ file, uploadType, ...props }: Props) {
 			<Button
 				onClick={removeFile}
 				variant={"destructive"}
-				className="rounded-3xl p-2 h-10 w-10 absolute right-8 top-8"
+				className="rounded-3xl p-2 h-8 w-8 absolute right-6 top-6"
 				type="button"
 			>
 				<X />
